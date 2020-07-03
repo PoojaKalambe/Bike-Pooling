@@ -1,0 +1,166 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width,intial-scale=1">
+<style>
+    body{
+        
+        background-image:url('Image/2.jpg');
+        background-attachment:fixed;
+        height:100%;
+        background-position:center;
+        background-size:cover;
+
+        
+    }
+
+div#validation>div#photo>table>tr>td>img{
+
+	position:top;
+	width:100px;
+	height:100px;
+	margin-left:20px;
+	margin-right:auto;
+	margin-top:10px;
+	display:block;
+
+
+}
+
+div#validation{
+
+
+		width:600px;
+	height:600px;
+	 position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+	z-index:+1;
+
+}
+
+div#validation>p{
+
+	marign-top:150px;
+	float:left;
+	display:block;
+	color:white;
+	font-family:'Times New Roman';
+}
+div#validation>div#boxes{
+
+	margin-right:100px;
+
+}
+div#validation{
+
+    position:relative;
+	
+    
+}
+div#validation>div#text1{
+    
+    position:absolute;
+    font-size:18px;
+    color:white;
+    
+    
+}
+div#text1{
+    
+    position:absolute;
+    bottom:30px;
+    right:20px;
+    color:white;
+    
+}
+
+</style>
+
+<script type="text/javascript">
+		
+        function generateCaptcha()
+        {
+            var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+            var i;
+            for (i=0;i<4;i++){
+                var a = alpha[Math.floor(Math.random() * alpha.length)];
+                var b = alpha[Math.floor(Math.random() * alpha.length)];
+                var c = alpha[Math.floor(Math.random() * alpha.length)];
+                var d = alpha[Math.floor(Math.random() * alpha.length)];
+            }
+            var code = a + '' + b + '' + '' + c + '' + d;
+            document.getElementById("captcha").value = code
+        }
+
+function CheckValidCaptcha(){
+    var string1 = removeSpaces(document.getElementById('captcha').value);
+    var string2 = removeSpaces(document.getElementById('verify').value);
+    if (string1 == string2){
+        //document.getElementById('success').innerHTML = "Form is validated Successfully";
+        alert("Form is validated Successfully");
+        window.location.href='home.html';
+        
+        return true;
+    }
+    else{
+        //document.getElementById('error').innerHTML = "Please enter a valid captcha.";
+        alert("Please enter a valid captcha.");
+        generateCaptcha();
+        clearSpaces();
+        return false;
+        
+    }
+}
+function removeSpaces(string){
+    return string.split(' ').join('');
+}
+function clearSpaces(){
+    
+    document.getElementById('verify').value="";
+    
+}
+	</script>
+	
+	
+<body onload="generateCaptcha();">
+
+
+	<div id="validation">
+	
+		<div id="photo">
+			<table>
+			<tr>
+			<td><img src="Image/logo_1.jpg"  alt="welcome to ncc website" align="center" style="width:590px;height:200px"></td>
+			</tr>
+			</table>
+		
+		</div>
+		<p>PLEASE VERIFY FOR YOUR INHUMAN BY INPUTTING THE CAPTCHA SHOWN IN THE BOX BELOW</p>
+		<center>
+        <div id="boxes">
+            <input type="text" id="captcha" name="captcha" readonly="readonly" style="height:30px; font-size:15pt;" /></br>
+        </br>
+
+<input type="text" id="verify" name="verify" style="height:30px; font-size:15pt;"/></br></br>
+		<input type="button" onclick="CheckValidCaptcha();" value="verify"/></br>
+		</div>
+
+        
+        <span id="error" style="color:red;"></span>
+        <span id="success" style="color:red;"></span>
+        </center>
+	</div>
+    
+    <div id="text1">
+        <p style="bottom:8px;right:16px;color:white;">WHY TO RIDE ALONE</p>
+        
+    </div>
+    
+</body>
+</head>
+</html>

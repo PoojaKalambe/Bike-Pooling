@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <style>
+                body{
+                    
+                    background-image:url('Image/indexBackgroundImage.jpg');
+                    background-attachment:fixed;
+                    height:100%;
+                    background-position:center;
+                    background-size:cover;
+                }
+            
+            
+            div#motio >p{
+                
+                font-family:'Times New Roman';
+                color:white;
+                width:200px;
+                height:15px;
+                
+                display:inline-block;
+                
+            }
+            
+            div#motio >p:hover{
+                
+                background-color:lightgray;
+            }
+            div#nav >ul#mainMenu{
+                
+                background-color:transparent;
+                list-style:none;
+                margin:0px;
+                padding-left:0px;
+                position:fixed;
+                width:100%;
+                border:0px;
+                
+            }
+            div#nav >ul >li{
+                
+                float:left;
+                
+            }
+            
+            
+            div#nav>ul>li>a{
+                
+                text-decoration:none;
+                display:inline-block;
+                text-align:center;
+                height:50px;
+                width:200px;
+                line-height:50px;
+                color:white;
+                border-right:1px transparent;
+                
+                
+            }
+            
+            div#nav >ul>li>a:hover{
+                
+                background-color:lightgray;
+                
+                
+            }
+            div#feedback>ul{
+                
+                background-color:transparent;
+                list-style:none;
+                
+            }
+            
+            
+            div#feedback>ul>li>a{
+                
+                
+                color:white;
+                text-decoration:none;
+                display:inline-block;
+                text-align:-webkit-border-top-left-radius;
+                height:30px;
+                width:200px;
+                text-align:center;
+                line-height:30px;
+                position:relative;
+                left:900px;
+            }
+            div#feedback>ul>li>a:hover{
+                
+                background-color:lightgray;
+                
+            }
+            div#nav >ul#mainMenu >li >ul.subMenu{
+                
+                list-style-type:none;
+                padding-left:0px;
+                height:0px;
+                overflow:hidden;
+                position:absolute;
+                
+            }
+            div#nav >ul#mainMenu>li>ul.subMenu >li>a{
+                
+                text-decoration:none;
+                background-color:transparent;
+                width:200px;
+                height:60px;
+                display:block;
+                
+                text-align:center;
+                
+                
+                line-height:normal;
+                
+                font-family:'Times New Roman';
+                color:black;
+                font-weight:bold;
+                
+                
+                
+            }
+            div#nav >ul#mainMenu>li:hover >ul.subMenu{
+                
+                height:400px;
+                background-color:transparent;
+                -webkit-animation:myAnimation 1.1s;
+                
+                
+            }
+            div#nav>ul#mainMenu>li>a:hover{
+                
+                background-color:orange;
+                color:red;
+                
+            }
+            @-webkit-keyframes myAnimation{
+                
+                from{height:0px;}
+                to{height:60px;}
+            }
+            div#imageauto{
+                
+                margin-left:75px;
+                border:1px solid black;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                z-index:-1;
+                
+            }
+            div#imageauto>img{
+                
+                display:block;
+                margin:auto;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                
+                
+                
+            }
+            
+            div#info{
+                
+                margin-left:60px;
+                margin-top:60px;
+                
+            }
+            </style>
+            <script type="text/javascript">
+                
+                
+                
+            function disableClick(){
+                document.onmousedown=function(event){
+                    if (event.button == 2) {
+                        alert('Right Click Message');
+                        location.replace('index.html');
+                        return false;
+                    }
+                }
+            }
+            </script>
+            </head>
+    
+    <body onload="disableClick();">
+        <div id="feedback">
+            <img src="Image/logo_1.jpg" alt="nccLogo" align="left" href="logo_1.png" usemap="#nccmap" style="height:40px; width:140px;">
+                <map name="nccmap" id="nccmap">
+                    
+                    <area target="" title="ncc" shape="poly" coords="2,4,25,2,27,42,1,42" alt="ncc" href="logo_1.png"/>
+                    
+                </map>
+                
+                <ul>
+                    <li><a href="#"></a></li>
+                </ul>
+                </div>
+        <div id="motio">
+            
+            <p><b></i>Let's Ride</b></i></P>
+            <img src="Image/login.jpg" alt="login" align="right"  usemap="#workmap">
+                <map name="workmap" id="workmap">
+                    
+                    <area target="" title="login" shape="poly" coords="6,7,162,11,159,182,14,182" alt="login" href="login1.html"/>
+                    
+                    
+                </map>
+                
+                
+                </div>
+        <div id="nav">
+            <ul id="mainMenu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="howItWork.html">How it's work</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="fareDetails.html">Fare Details</a></li>
+                
+                
+                
+                <li><a href="contactUs.html">Contact US</a></li>
+            </ul>
+        </div>
+        </br></br></br></br>
+        <div id="info">
+            
+            <font color="white" face="Times New Roman" size="6">The aim of our company is to make the riding expereince cool with giving exposure to new pepole with safe and secure riding experience</font></br></br>
+                
+                <font color="white" face="Times New Roman" size="6">We have well trained Rider</font></br></br>
+                
+                <font color="white" face="Times New Roman" size="6">Our Aim is to make the fuel available for our next Generation by starting Bike Pooling and start using our Services</font></br></br>
+                
+                <font color="white" face="Times New Roman" size="6">Think and Act Fast For a Safe and Clean Environment For Our Upcoming Next Generation</font></br></br>
+                
+                <font color="white" face="Times New Roman" size="6">JaiHind</font></br></br>
+            
+            
+        </div>
+        
+    </body>
+    
+</html>
+
+
+

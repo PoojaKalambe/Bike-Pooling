@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <style>
+                body{
+                    
+                    background-image:url('Image/indexBackgroundImage.jpg');
+                    background-attachment:fixed;
+                    height:100%;
+                    background-position:center;
+                    background-size:cover;
+                }
+            
+            
+            div#motio >p{
+                
+                font-family:'Times New Roman';
+                color:white;
+                width:200px;
+                height:15px;
+                
+                display:inline-block;
+                
+            }
+            
+            div#motio >p:hover{
+                
+                background-color:lightgray;
+            }
+            div#nav >ul#mainMenu{
+                
+                background-color:transparent;
+                list-style:none;
+                position:fixed;
+                margin:0px;
+                padding-left:0px;
+                position:fixed;
+                width:100%;
+                border:0px;
+                
+            }
+            div#nav >ul >li{
+                
+                float:left;
+                
+            }
+            
+            
+            div#nav>ul>li>a{
+                
+                text-decoration:none;
+                display:inline-block;
+                text-align:center;
+                height:50px;
+                width:200px;
+                line-height:50px;
+                color:white;
+                border-right:1px transparent;
+                
+                
+            }
+            
+            div#nav >ul>li>a:hover{
+                
+                background-color:lightgray;
+                
+                
+            }
+            div#feedback>ul{
+                
+                background-color:transparent;
+                list-style:none;
+                
+            }
+            
+            
+            div#feedback>ul>li>a{
+                
+                
+                color:white;
+                text-decoration:none;
+                display:inline-block;
+                text-align:-webkit-border-top-left-radius;
+                height:30px;
+                width:200px;
+                text-align:center;
+                line-height:30px;
+                position:relative;
+                left:900px;
+            }
+            div#feedback>ul>li>a:hover{
+                
+                background-color:lightgray;
+                
+            }
+            div#nav >ul#mainMenu >li >ul.subMenu{
+                
+                list-style-type:none;
+                padding-left:0px;
+                height:0px;
+                overflow:hidden;
+                position:absolute;
+                
+            }
+            div#nav >ul#mainMenu>li>ul.subMenu >li>a{
+                
+                text-decoration:none;
+                background-color:transparent;
+                width:200px;
+                height:60px;
+                display:block;
+                
+                text-align:center;
+                
+                
+                line-height:normal;
+                
+                font-family:'Times New Roman';
+                color:black;
+                font-weight:bold;
+                
+                
+                
+            }
+            div#nav >ul#mainMenu>li:hover >ul.subMenu{
+                
+                height:400px;
+                background-color:transparent;
+                -webkit-animation:myAnimation 1.1s;
+                
+                
+            }
+            div#nav>ul#mainMenu>li>a:hover{
+                
+                background-color:orange;
+                color:red;
+                
+            }
+            @-webkit-keyframes myAnimation{
+                
+                from{height:0px;}
+                to{height:60px;}
+            }
+            div#imageauto{
+                
+                margin-left:75px;
+                border:1px solid black;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                z-index:-1;
+                
+            }
+            div#imageauto>img{
+                
+                display:block;
+                margin:auto;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                
+                
+                
+            }
+            
+            div#login1{
+                
+                margin-top:100px;
+                
+                margin-left:400px;
+                z-index:1;
+                display:inline-block;
+                width:500px;
+                height:500px;
+                
+            }
+
+            
+            </style>
+            <script type="text/javascript">
+                
+               
+               function validate(){
+                   var input = document.getElementById("pwd");
+                   var text = document.getElementById("text");
+                   input.addEventListener("keyup", function(event) {
+                                          
+                                          if (event.getModifierState("CapsLock")) {
+                                          text.style.display = "block";
+                                          document.getElementById('text').innerHTML=" warning ! Caps lock is ON ";
+                                          validate1();
+                                          } else {
+                                          text.style.display = "none"
+                                          }
+                                          });
+                                          
+                                          
+                                          
+               }
+            function validate1(){
+                
+                var input = document.getElementById("pwd").value;
+                var pattern=/^[a-zA-Z\s]+$/;
+                if(input.match(pattern)){
+                    
+                    document.getElementById('passwordcheck').innerHTML="";
+                    validate();
+                    return true;
+                    
+                }else{
+                    
+                    document.getElementById('passwordcheck').innerHTML="Enter only small and capital letter";
+                    
+                    return false;
+                    
+                }
+                
+                
+            }
+            
+            function check(){
+                
+                var output;
+                var role1;
+                var user_name=document.getElementById("usr").value;
+                var password=document.getElementById("pwd").value;
+                
+                if(document.getElementById("role2").checked){
+                    
+                    role1=document.getElementById("role2").value;
+                    
+                }else if(document.getElementById("role3").checked){
+                    
+                    role1=document.getElementById("role3").value;
+                    
+                }
+               
+                alert(""+role1);
+                if(window.XMLHttpRequest){
+                    
+                    var xmlhttp=new XMLHttpRequest();
+                    
+                }else{
+                    
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    
+                }
+                
+                xmlhttp.open("GET","login.php?u1="+user_name+"&p1="+password+"&r1="+role1,false);
+                
+                xmlhttp.onreadystatechange=function(){
+                    
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                        //alert("hii2");
+                        output=xmlhttp.responseText;
+                        //alert(output);
+                        
+                        if(output.charAt(0)=='I'){
+                            
+                            alert("wrong details : ");
+                            //window.location.assign("login1.html")
+                            
+                            return false;
+                            
+                        }else{
+                            //alert("Welcome : "+user_name+" "+password);
+                            //location.url("user.html");
+                            //window.location.assign("user.html")
+                            document.cookie="username="+user_name;
+                            //alert(document.cookie);
+                            var res=role1.localeCompare("ri");
+                            
+                            if(res==0){
+                                
+                                window.location.assign("riderPage.html");
+                                
+                            }else{
+                                
+                                window.location.assign("customerPage.html");
+                                
+                            }
+                            
+                            return true;
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                xmlhttp.send();
+                
+                
+            }
+            
+            function signup1(){
+                
+                //window.location.asign("signup.html");
+                window.location.assign("signup.html")
+                
+            }
+
+               
+               
+            
+            function disableClick(){
+                document.onmousedown=function(event){
+                    if (event.button == 2) {
+                        alert('Right Click Message');
+                        location.replace('index.html');
+                        return false;
+                    }
+                }
+            }
+            </script>
+            </head>
+    
+    <body onload="disableClick();">
+        <div id="feedback">
+            <img src="Image/logo_1.jpg" alt="riderLogo" align="left" href="Image/logo_1.jpg" usemap="#nccmap" style="height:40px; width:140px;">
+                <map name="nccmap" id="nccmap">
+                    
+                    <area target="" title="ncc" shape="poly" coords="2,4,25,2,27,42,1,42" alt="ncc" href="logo_1.png"/>
+                    
+                </map>
+                
+                <ul>
+                    <li><a href="#"></a></li>
+                </ul>
+                </div>
+        <div id="motio">
+            
+            <p><b></i>Let's Ride</b></i></P>
+            <img src="Image/login.jpg" alt="login" align="right"  usemap="#workmap">
+                <map name="workmap" id="workmap">
+                    
+                    <area target="" title="login" shape="poly" coords="6,7,162,11,159,182,14,182" alt="login" href="login1.html"/>
+                    
+                    
+                </map>
+                
+                
+                </div>
+        <div id="nav">
+            <ul id="mainMenu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="howItWork.html">How it's work</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="fareDetails.html">Fare Details</a></li>
+                
+                
+                
+                <li><a href="contactUs.html">Contact US</a></li>
+            </ul>
+        </div>
+        </br></br></br></br>
+        
+        <div id="login1">
+            <font color="white">ENTER THE USER NAME</font>
+            <input type="text" id="usr" name="usr" style="height:20px; width:150px;" maxlength=10 /></br></br>
+            <font color="white">ENTER THE PASSWORD&nbsp;&nbsp;</font>
+            <input type="password" id="pwd" name="pwd" style="height:20px; width:150px;" maxlength=20 onkeyup="validate1()"/></br></br>
+            <font color="white">Select Role</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="role" id="role2" value="ri" />&nbsp;&nbsp;<font color="white">Rider</font>&nbsp;&nbsp;
+            <input type="radio" name="role" id="role3" value="cu" />&nbsp;&nbsp;<font color="white">Customer</font></br></br>
+            <p id="text" style="color:red;"></p>
+            <p id="passwordcheck" style="color:red;"></p>
+            <table>
+                <tr>
+                    <td><button style="margin-left:40px;" onclick="check()">login</button></td>
+                    
+                    <td><input type="button" style="margin-left:70px;" value="signup" onclick="signup1();"/></td>
+                </tr>
+            </table>
+        </div>
+        
+    </body>
+    
+</html>
+
+
+

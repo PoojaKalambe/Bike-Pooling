@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <style>
+                body{
+                    
+                    background-image:url('Image/indexBackgroundImage.jpg');
+                    background-attachment:fixed;
+                    height:100%;
+                    background-position:center;
+                    background-size:cover;
+                }
+            
+            
+            div#motio >p{
+                
+                font-family:'Times New Roman';
+                color:white;
+                width:200px;
+                height:15px;
+                
+                display:inline-block;
+                
+            }
+            
+            div#motio >p:hover{
+                
+                background-color:lightgray;
+            }
+            div#nav >ul#mainMenu{
+                
+                background-color:transparent;
+                list-style:none;
+                position:fixed;
+                margin:0px;
+                padding-left:0px;
+                position:fixed;
+                width:100%;
+                border:0px;
+                
+            }
+            div#nav >ul >li{
+                
+                float:left;
+                
+            }
+            
+            
+            div#nav>ul>li>a{
+                
+                text-decoration:none;
+                display:inline-block;
+                text-align:center;
+                height:50px;
+                width:200px;
+                line-height:50px;
+                color:white;
+                border-right:1px transparent;
+                
+                
+            }
+            
+            div#nav >ul>li>a:hover{
+                
+                background-color:lightgray;
+                
+                
+            }
+            div#feedback>ul{
+                
+                background-color:transparent;
+                list-style:none;
+                
+            }
+            
+            
+            div#feedback>ul>li{
+                
+                
+                color:white;
+                text-decoration:none;
+                display:inline-block;
+                text-align:-webkit-border-top-left-radius;
+                height:30px;
+                width:200px;
+                text-align:center;
+                line-height:30px;
+                position:relative;
+                left:1000px;
+            }
+            div#feedback>ul>li:hover{
+                
+                background-color:lightgray;
+                
+            }
+            
+            div#nav{
+                
+                margin-left:200px;
+                
+            }
+            
+            div#nav >ul#mainMenu>li{
+                
+                text-decoration:none;
+                background-color:transparent;
+                width:200px;
+                height:60px;
+                display:block;
+                
+                text-align:center;
+                
+                
+                line-height:normal;
+                
+                font-family:'Times New Roman';
+                color:black;
+                font-weight:bold;
+                
+                
+                
+            }
+            div#nav>ul#mainMenu>li:hover{
+                
+                background-color:orange;
+                color:red;
+                
+            }
+            @-webkit-keyframes myAnimation{
+                
+                from{height:0px;}
+                to{height:60px;}
+            }
+            div#imageauto{
+                
+                margin-left:75px;
+                border:1px solid black;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                z-index:-1;
+                
+            }
+            div#imageauto>img{
+                
+                display:block;
+                margin:auto;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                
+                
+                
+            }
+            
+            div#login1{
+                
+                margin-top:100px;
+                
+                margin-left:400px;
+                z-index:1;
+                display:inline-block;
+                width:500px;
+                height:500px;
+                
+            }
+            
+            div#riderData{
+                
+                margin-top:100px;
+                margin-left:230px;
+                font-family:'Times New Roman';
+                color:white;
+                font-weight:bold;
+                
+            }
+            
+
+            
+            div#rideDetails{
+                
+                margin-top:70px;
+                margin-left:200px;
+                font-family:'Times New Roman';
+                color:white;
+                font-weight:bold;
+                
+            }
+            
+            
+                </style>
+            <script type="text/javascript">
+                
+                function getUserName(){
+                    
+                    if(window.XMLHttpRequest){
+                        
+                        var xmlhttp=new XMLHttpRequest();
+                        
+                    }else{
+                        
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                        
+                    }
+                    
+                    xmlhttp.open("GET","getUserName.php",false);
+                    
+                    xmlhttp.onreadystatechange=function(){
+                        
+                        if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                            
+                            output=xmlhttp.responseText;
+                            document.getElementById("user").value=""+output.toUpperCase();
+                            disableClick();
+                            
+                        }
+                        
+                    }
+                    
+                    xmlhttp.send();
+                    
+                    
+                }
+                    
+                
+                function getProfileInformation(){
+                    
+                    rideDetails.style.display='none';
+                    riderData.style.display='block';
+                    
+                    if(window.XMLHttpRequest){
+                        
+                        var xmlhttp=new XMLHttpRequest();
+                        
+                    }else{
+                        
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                        
+                    }
+                    
+                    xmlhttp.open("GET","getProfileInformation.php",false);
+                    
+                    xmlhttp.onreadystatechange=function(){
+                        
+                        if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                            
+                            document.getElementById("riderData").innerHTML=xmlhttp.responseText;
+                            
+                        }
+                        
+                    }
+                    
+                    xmlhttp.send();
+                    
+                }
+            
+            
+            function show(){
+                
+                riderData.style.display='none';
+                rideDetails.style.display='block';
+                
+            }
+            
+            function dataSave(){
+                
+                var area=document.getElementById("area").value;
+                var dist=document.getElementById("dist").value;
+                var state=document.getElementById("state").value;
+                var landmark=document.getElementById("landmark").value;
+                var pincode=document.getElementById("pincode").value;
+                var darea=document.getElementById("darea").value;
+                var ddist=document.getElementById("ddist").value;
+                var dstate=document.getElementById("dstate").value;
+                var dlandmark=document.getElementById("dlandmark").value;
+                var dpincode=document.getElementById("dpincode").value;
+                
+                
+                if(window.XMLHttpRequest){
+                    
+                    var xmlhttp=new XMLHttpRequest();
+                    
+                }else{
+                    
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    
+                }
+                
+                xmlhttp.open("GET","riderPage.php?area="+area+"&dist="+dist+"&state="+state+"&landmark="+landmark+"&pincode="+pincode+"&darea="+darea+"&ddist="+ddist+"&dstate="+dstate+"&dlandmark="+dlandmark+"&dpincode="+dpincode,false);
+                
+                xmlhttp.onreadystatechange=function(){
+                    
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                       
+                       window.location.assign("riderPage.html");
+                        
+                    }
+                    
+                }
+                
+                xmlhttp.send();
+
+                
+                
+                
+            }
+            
+            
+            function searchCustomer(){
+                
+                
+                //save1.style.display:'block';
+                rideDetails.style.display='none';
+                riderData.style.display='block';
+                //save1.style.display:'block';
+                
+                if(window.XMLHttpRequest){
+                    
+                    var xmlhttp=new XMLHttpRequest();
+                    
+                }else{
+                    
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    
+                }
+                
+                xmlhttp.open("GET","searchCustomer.php",false);
+                
+                xmlhttp.onreadystatechange=function(){
+                    
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                        
+                        document.getElementById("riderData").innerHTML=xmlhttp.responseText;
+                        
+                    }
+                    //save1.style.display:'block';
+                }
+                
+                xmlhttp.send();
+                
+            }
+            
+            function logout(){
+                
+                if(window.XMLHttpRequest){
+                    
+                    var xmlhttp=new XMLHttpRequest();
+                    
+                }else{
+                    
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    
+                }
+                
+                xmlhttp.open("GET","logout.php",false);
+                
+                xmlhttp.onreadystatechange=function(){
+                    
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                        
+                        window.location.assign("login1.html");
+                        //document.getElementById("riderData").innerHTML=xmlhttp.responseText;
+                        
+                    }
+                    //save1.style.display:'block';
+                }
+                
+                xmlhttp.send();
+                
+                
+            }
+            
+            
+            function disableClick(){
+                document.onmousedown=function(event){
+                    if (event.button == 2) {
+                        alert('Right Click Message');
+                        location.replace('index.html');
+                        return false;
+                    }
+                }
+            }
+            </script>
+            </head>
+    
+    <body onload="getUserName();">
+        <div id="feedback">
+            <img src="Image/logo_1.jpg" alt="riderLogo" align="left" href="Image/logo_1.jpg" usemap="#nccmap" style="height:40px; width:140px;">
+                
+                <map name="nccmap" id="nccmap">
+                    
+                    <area target="" title="ncc" shape="poly" coords="2,4,25,2,27,42,1,42" alt="ncc" href="Image/logo_1.jpg"/>
+                    
+                </map>
+                
+                <ul>
+                    <li><input type="text" id="user" readonly="readonly" size="15"/></a></li>
+                </ul>
+                
+                </div>
+        <div id="motio">
+            
+            <p><b></i>Let's Ride</b></i></P>
+            <img src="Image/logout.jpg" alt="logout" align="right"  usemap="#workmap">
+                <map name="workmap" id="workmap">
+                    
+                    <area target="" title="logout" shape="poly" coords="6,7,162,11,159,182,14,182" alt="logout" onclick="logout()"/>
+                    
+                    
+                </map>
+                
+                
+                </div>
+        <div id="nav">
+            <ul id="mainMenu">
+                <li><input type="button" value="profile" onclick="getProfileInformation();"/></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><input type="button" value="ride Detail" onclick="show();" /></li>&nbsp;&nbsp;&nbsp;
+                <li><input type="button" value="search Customer"  onclick="searchCustomer();"/></li>
+                
+            </ul>
+        </div>
+        </br></br>
+        
+        <div id="riderData" style="display:none;">
+            
+            
+            
+        </div>
+        <div id="rideDetails" style="display:none;">
+            
+            <table>
+                
+                <tr>
+                    <td>Enter the starting location(area)</td>
+                    <td><input type="text" id="area" placeholder="enter the area"/>
+                    
+                </tr>
+                <tr>
+                    <td>Enter the district</td>
+                    <td><input type="text" id="dist" placeholder="Enter the district"/>
+                    
+                </tr>
+                
+                <tr>
+                    <td>Enter the state</td>
+                    <td><input type="text" id="state" placeholder="Enter the state"/>
+                        
+                </tr>
+                
+                <tr>
+                    <td>Enter the landmark</td>
+                    <td><input type="text" id="landmark" placeholder="Enter the landmark"/>
+                        
+                </tr>
+
+
+                
+                <tr>
+                    <td>Enter the pincode</td>
+                    <td><input type="text" id="pincode" placeholder="Enter the pincode"/>
+                        
+                </tr>
+
+                
+                
+            </table>
+            </br></br></br>
+
+            <table>
+                
+                <tr>
+                    <td>Enter the destination location(area)</td>
+                    <td><input type="text" id="darea" placeholder="enter the area"/>
+                        
+                        </tr>
+                <tr>
+                    <td>Enter the district</td>
+                    <td><input type="text" id="ddist" placeholder="Enter the district"/>
+                        
+                        </tr>
+                
+                <tr>
+                    <td>Enter the state</td>
+                    <td><input type="text" id="dstate" placeholder="Enter the state"/>
+                        
+                        </tr>
+                
+                <tr>
+                    <td>Enter the landmark</td>
+                    <td><input type="text" id="dlandmark" placeholder="Enter the landmark"/>
+                        
+                        </tr>
+                
+                
+                
+                <tr>
+                    <td>Enter the pincode</td>
+                    <td><input type="text" id="dpincode" placeholder="Enter the pincode"/>
+                        
+                        </tr>
+                
+                
+                
+            </table>
+            
+            </br></br></br>
+            <input type="button" value="enter data" style="margin-left:150px;" onclick="dataSave();"/>
+            
+        </div>
+        
+    </body>
+    
+</html>
+
+
+
+

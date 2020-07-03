@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <style>
+                body{
+                    
+                    background-image:url('Image/indexBackgroundImage.jpg');
+                    background-attachment:fixed;
+                    height:100%;
+                    background-position:center;
+                    background-size:cover;
+                }
+            
+            
+            div#motio >p{
+                
+                font-family:'Times New Roman';
+                color:white;
+                width:200px;
+                height:15px;
+                
+                display:inline-block;
+                
+            }
+            
+            div#motio >p:hover{
+                
+                background-color:lightgray;
+            }
+            div#nav >ul#mainMenu{
+                
+                background-color:transparent;
+                list-style:none;
+                margin:0px;
+                padding-left:0px;
+                position:fixed;
+                width:100%;
+                border:0px;
+                
+            }
+            div#nav >ul >li{
+                
+                float:left;
+                
+            }
+            
+            
+            div#nav>ul>li>a{
+                
+                text-decoration:none;
+                display:inline-block;
+                text-align:center;
+                height:50px;
+                width:200px;
+                line-height:50px;
+                color:white;
+                border-right:1px transparent;
+                
+                
+            }
+            
+            div#nav >ul>li>a:hover{
+                
+                background-color:lightgray;
+                
+                
+            }
+            div#feedback>ul{
+                
+                background-color:transparent;
+                list-style:none;
+                
+            }
+            
+            
+            div#feedback>ul>li>a{
+                
+                
+                color:white;
+                text-decoration:none;
+                display:inline-block;
+                text-align:-webkit-border-top-left-radius;
+                height:30px;
+                width:200px;
+                text-align:center;
+                line-height:30px;
+                position:relative;
+                left:900px;
+            }
+            div#feedback>ul>li>a:hover{
+                
+                background-color:lightgray;
+                
+            }
+            div#nav >ul#mainMenu >li >ul.subMenu{
+                
+                list-style-type:none;
+                padding-left:0px;
+                height:0px;
+                overflow:hidden;
+                position:absolute;
+                
+            }
+            div#nav >ul#mainMenu>li>ul.subMenu >li>a{
+                
+                text-decoration:none;
+                background-color:transparent;
+                width:200px;
+                height:60px;
+                display:block;
+                
+                text-align:center;
+                
+                
+                line-height:normal;
+                
+                font-family:'Times New Roman';
+                color:black;
+                font-weight:bold;
+                
+                
+                
+            }
+            div#nav >ul#mainMenu>li:hover >ul.subMenu{
+                
+                height:400px;
+                background-color:transparent;
+                -webkit-animation:myAnimation 1.1s;
+                
+                
+            }
+            div#nav>ul#mainMenu>li>a:hover{
+                
+                background-color:orange;
+                color:red;
+                
+            }
+            @-webkit-keyframes myAnimation{
+                
+                from{height:0px;}
+                to{height:60px;}
+            }
+            div#imageauto{
+                
+                margin-left:75px;
+                border:1px solid black;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                z-index:-1;
+                
+            }
+            div#imageauto>img{
+                
+                display:block;
+                margin:auto;
+                width:1000px;
+                height:400px;
+                position:fixed;
+                
+                
+                
+            }
+            </style>
+            <script type="text/javascript">
+                
+            
+            function check(){
+                
+                rider.style.display='block';
+                customer.style.display='none';
+                return;
+                
+            }
+            
+            function check1(){
+                
+                rider.style.display='none';
+                customer.style.display='block';
+                return;
+                
+            }
+            
+            
+            function disableClick(){
+                document.onmousedown=function(event){
+                    if (event.button == 2) {
+                        alert('Right Click Message');
+                        location.replace('index.html');
+                        return false;
+                    }
+                }
+            }
+            </script>
+            </head>
+    
+    <body onload="disableClick();">
+        <div id="feedback">
+            <img src="Image/logo_1.jpg" alt="nccLogo" align="left" href="logo_1.png" usemap="#nccmap" style="height:40px; width:140px;">
+                <map name="nccmap" id="nccmap">
+                    
+                    <area target="" title="ncc" shape="poly" coords="2,4,25,2,27,42,1,42" alt="ncc" href="logo_1.png"/>
+                    
+                </map>
+                
+                <ul>
+                    <li><a href="#"></a></li>
+                </ul>
+                </div>
+        <div id="motio">
+            
+            <p><b></i>Let's Ride</b></i></P>
+            <img src="Image/login.jpg" alt="login" align="right"  usemap="#workmap">
+                <map name="workmap" id="workmap">
+                    
+                    <area target="" title="login" shape="poly" coords="6,7,162,11,159,182,14,182" alt="login" href="login1.html"/>
+                    
+                    
+                </map>
+                
+                
+                </div>
+        <div id="nav">
+            <ul id="mainMenu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="howItWork.html">How it's work</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="fareDetails.html">Fare Details</a></li>
+                
+                
+                
+                <li><a href="contactUs.html">Contact US</a></li>
+            </ul>
+        </div>
+        </br></br></br></br>
+        
+        <div id="details">
+            
+            <h1><font color="white">How To Use Our Services</font></h1>
+            <input type="button" value="rider" onclick="check()" />&nbsp;&nbsp;&nbsp;
+            <input type="button" value="customer" onclick="check1()" /></br>
+            
+            <div id="rider" style="display:block">
+                
+                <h1><font color="white">Rider</font></h1>
+                
+                <table>
+                    
+                    <tr>
+                        <td><font color="white" size="5">Registered Rider</font></td>
+                        <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnRegistered Rider</font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="white" size="4">1 login</font></td>
+                        <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 SignUp</font></td>
+                    </tr>
+                    <tr>
+                        
+                        <td><font color="white" size="4">2 Fill the ride Details</font></td>
+                        <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 login</font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="white" size="4">3 Start the ride</font></td>
+                        <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Fill the Ride Details</font></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><font color="white" size="4">4 Accept the payment Using Cash</font></td>
+                        <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Take a Ride</font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="white" size="4"></font></td>
+                        <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Accept the payment Using Cash</font></td>
+                    </tr>
+                </table>
+                
+                
+            </div>
+            
+            <div id="customer" style="display:none">
+            
+            <h1><font color="white">Customer</font></h1>
+            <table>
+                
+                <tr>
+                    <td><font color="white" size="5">Registered Customer</font></td>
+                    <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnRegistered Customer</font></td>
+                </tr>
+                <tr>
+                    <td><font color="white" size="4">1 login</font></td>
+                    <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 SignUp</font></td>
+                </tr>
+                <tr>
+                    
+                    <td><font color="white" size="4">2 Fill the ride Details</font></td>
+                    <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 login</font></td>
+                </tr>
+                <tr>
+                    <td><font color="white" size="4">3 Take a Ride</font></td>
+                    <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 Fill the Ride Details</font></td>
+                
+                </tr>
+                <tr>
+                    <td><font color="white" size="4">4 Pay the Driver Using Cash</font></td>
+                    <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 Take a Ride</font></td>
+                </tr>
+                <tr>
+                    <td><font color="white" size="4"></font></td>
+                    <td><font color="white" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 Pay the Driver Using Cash</font></td>
+                </tr>
+            </table>
+        </div>
+            
+        </div>
+        
+    </body>
+    
+</html>
+
+
+
